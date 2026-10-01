@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-dark text-cream-light transition-colors duration-300 relative;
+  }
+
+  body::before {
+    content: "";
+    @apply fixed inset-0 z-[9998] pointer-events-none opacity-[0.03];
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(150%) brightness(100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  
+  .dark .glass {
+    @apply bg-dark/70 backdrop-blur-md border-white/10 shadow-xl;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-dark transition-all transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-accent text-white px-6 py-3 rounded-full font-semibold hover:bg-accent-dark transition-all transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all transform hover:scale-105 active:scale-95;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cream-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+.scroll-indicator {
+  @apply fixed top-0 left-0 h-1 bg-accent z-[100] transition-all duration-300;
+}
