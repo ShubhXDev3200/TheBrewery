@@ -3,8 +3,8 @@ services:
     name: the-brewery-api
     runtime: node
     rootDir: server
-    buildCommand: npm install
-    startCommand: node server.js
+    buildCommand: npm install && npm run build
+    startCommand: node dist/server.js
     envVars:
       - key: NODE_ENV
         value: production
